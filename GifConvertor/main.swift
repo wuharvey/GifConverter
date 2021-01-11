@@ -6,6 +6,19 @@
 //
 
 import Foundation
+import ArgumentParser
 
-print("Hello, World!")
+struct GIFConvert: ParsableCommand {
+    @Argument(help: "Complete GIF Path")
+    var path: String
+
+    func run() throws {
+        let fileURL = URL(fileURLWithPath: path)
+        NSGIF.optimalGIFfromURL(fileURL, loopCount: 0, completion: { gifURL in
+            print(gifURL)
+        })
+    }
+}
+
+GIFConvert.main()
 

@@ -3,11 +3,13 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
 		3C955F7F25A913CF0044DA70 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3C955F7E25A913CF0044DA70 /* main.swift */; };
+		3C955F8925A914370044DA70 /* NSGIF.m in Sources */ = {isa = PBXBuildFile; fileRef = 3C955F8825A914370044DA70 /* NSGIF.m */; };
+		3C955F9125ACA0140044DA70 /* ArgumentParser in Frameworks */ = {isa = PBXBuildFile; productRef = 3C955F9025ACA0140044DA70 /* ArgumentParser */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -25,6 +27,9 @@
 /* Begin PBXFileReference section */
 		3C955F7B25A913CF0044DA70 /* GifConvertor */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = GifConvertor; sourceTree = BUILT_PRODUCTS_DIR; };
 		3C955F7E25A913CF0044DA70 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
+		3C955F8625A914150044DA70 /* NSGIF.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = NSGIF.h; sourceTree = "<group>"; };
+		3C955F8725A914370044DA70 /* GifConvertor-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "GifConvertor-Bridging-Header.h"; sourceTree = "<group>"; };
+		3C955F8825A914370044DA70 /* NSGIF.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = NSGIF.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -32,6 +37,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3C955F9125ACA0140044DA70 /* ArgumentParser in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -58,6 +64,9 @@
 			isa = PBXGroup;
 			children = (
 				3C955F7E25A913CF0044DA70 /* main.swift */,
+				3C955F8625A914150044DA70 /* NSGIF.h */,
+				3C955F8825A914370044DA70 /* NSGIF.m */,
+				3C955F8725A914370044DA70 /* GifConvertor-Bridging-Header.h */,
 			);
 			path = GifConvertor;
 			sourceTree = "<group>";
@@ -78,6 +87,9 @@
 			dependencies = (
 			);
 			name = GifConvertor;
+			packageProductDependencies = (
+				3C955F9025ACA0140044DA70 /* ArgumentParser */,
+			);
 			productName = GifConvertor;
 			productReference = 3C955F7B25A913CF0044DA70 /* GifConvertor */;
 			productType = "com.apple.product-type.tool";
@@ -93,6 +105,7 @@
 				TargetAttributes = {
 					3C955F7A25A913CF0044DA70 = {
 						CreatedOnToolsVersion = 12.2;
+						LastSwiftMigration = 1220;
 					};
 				};
 			};
@@ -105,6 +118,9 @@
 				Base,
 			);
 			mainGroup = 3C955F7225A913CF0044DA70;
+			packageReferences = (
+				3C955F8F25ACA0140044DA70 /* XCRemoteSwiftPackageReference "swift-argument-parser" */,
+			);
 			productRefGroup = 3C955F7C25A913CF0044DA70 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
@@ -120,6 +136,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3C955F7F25A913CF0044DA70 /* main.swift in Sources */,
+				3C955F8925A914370044DA70 /* NSGIF.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -244,10 +261,18 @@
 		3C955F8325A913CF0044DA70 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 229U42Q46Q;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GifConvertor/GifConvertor-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Debug;
@@ -255,10 +280,17 @@
 		3C955F8425A913CF0044DA70 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = 229U42Q46Q;
 				ENABLE_HARDENED_RUNTIME = YES;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
+				);
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "GifConvertor/GifConvertor-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 			};
 			name = Release;
@@ -285,6 +317,25 @@
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
+
+/* Begin XCRemoteSwiftPackageReference section */
+		3C955F8F25ACA0140044DA70 /* XCRemoteSwiftPackageReference "swift-argument-parser" */ = {
+			isa = XCRemoteSwiftPackageReference;
+			repositoryURL = "https://github.com/apple/swift-argument-parser";
+			requirement = {
+				kind = upToNextMajorVersion;
+				minimumVersion = 0.3.1;
+			};
+		};
+/* End XCRemoteSwiftPackageReference section */
+
+/* Begin XCSwiftPackageProductDependency section */
+		3C955F9025ACA0140044DA70 /* ArgumentParser */ = {
+			isa = XCSwiftPackageProductDependency;
+			package = 3C955F8F25ACA0140044DA70 /* XCRemoteSwiftPackageReference "swift-argument-parser" */;
+			productName = ArgumentParser;
+		};
+/* End XCSwiftPackageProductDependency section */
 	};
 	rootObject = 3C955F7325A913CF0044DA70 /* Project object */;
 }
